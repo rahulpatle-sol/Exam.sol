@@ -12,7 +12,7 @@ exam_sol = "6Nu6yV4ukuXwcJk4NUvB9KYqjWeeTRwdT7nf2Vfqn6Ag"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "https://api.devnet.solana.com"
 wallet = "~/.config/solana/id.json"
 
 [scripts]

@@ -29,7 +29,7 @@ pub mod exam_sol {
                     MintTo {
                         mint: ctx.accounts.mint.to_account_info(),
                         to: ctx.accounts.token_account.to_account_info(),
-                        authority: ctx.accounts.mint_authority.clone(),
+                        authority: ctx.accounts.mint_authority.to_account_info(),
                     },
                 ),
                 1,
@@ -61,8 +61,11 @@ pub struct SubmitResult<'info> {
     pub mint: Account<'info, Mint>,
     #[account(mut)]
     pub token_account: Account<'info, TokenAccount>,
-    /// CHECK: Mint authority is a PDA or signer
+
+    /// CHECK: This is the mint authority and must be a signer for token::mint_to CPI call.
+    #[account(mut, signer)]
     pub mint_authority: AccountInfo<'info>,
+
     pub token_program: Program<'info, Token>,
     pub system_program: Program<'info, System>,
 }
