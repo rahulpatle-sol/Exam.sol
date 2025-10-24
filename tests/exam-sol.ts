@@ -22,7 +22,7 @@ describe("exam_sol", () => {
       .initializeExam("Math", 40)
       .accounts({
         exam: exam.publicKey,
-        admin: provider.wallet.publicKey,
+        user: provider.wallet.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId,
       })
       .signers([exam])
@@ -57,7 +57,7 @@ describe("exam_sol", () => {
       .initializeExam("Science", 50)
       .accounts({
         exam: exam.publicKey,
-        admin: provider.wallet.publicKey,
+        user: provider.wallet.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId,
       })
       .signers([exam])
