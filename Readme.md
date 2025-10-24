@@ -17,3 +17,4 @@ ExamSol is a Solana smart contract that records exam metadata, accepts student s
 
 ## 🏗️ Architecture Diagram
 
+<img width="1024" height="1024" alt="exams_sol_arch" src="https://github.com/user-attachments/assets/089de6ac-aea2-422e-8672-b70052b8985d" />
