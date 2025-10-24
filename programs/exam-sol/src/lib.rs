@@ -58,3 +58,27 @@ pub struct Exam {
     pub subject: String,
     pub pass_mark: u8,
 }
+#[account]
+pub struct ResultRecord {
+    pub student: Pubkey,
+    pub score: u8,
+    pub passed: bool,
+}
+
+
+#[derive(Accounts)]
+pub struct SubmitResult<'info> {
+    #[account(mut)]
+    pub student: Signer<'info>,
+    #[account(init, payer = student, space = 8 + 32 + 1 + 1)]
+    pub result: Account<'info, ResultRecord>,
+    pub exam: Account<'info, Exam>,
+
+    #[account(mut)]
+    pub mint: Account<'info, Mint>,
+    #[account(mut)]
+    pub token_account: Account<'info, TokenAccount>,
+    /// CHECK: Mint authority is a PDA or signer
+    pub mint_authority: AccountInfo<'info>,
+    pub token_program: Program<'info, Token>,
+    pub system_program: Program<'info, System>,}
